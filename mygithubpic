@@ -1,0 +1,29 @@
+const Card = (props) => {
+ return (
+   <div style={{margin: '1em'}}>
+    <img src={props.avatar_url}/>
+    <div style={{display: 'inline-block', marginleft: 10}}>
+    <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>
+      {props.name}
+    </div>
+       <div>{props.company}</div>
+    </div>
+   </div> 
+ );
+};
+
+let data = [
+{ name: "Vijeet",
+  avatar_url: "https://avatars3.githubusercontent.com/u/35310011?v=4", company:null},
+
+];
+
+const CardList = (props) => {
+return(
+   <div>
+     {props.cards.map(card => <Card {...card} />)}
+   </div>  
+ );
+}
+
+ReactDOM.render(<CardList cards={data} />, mountNode);
